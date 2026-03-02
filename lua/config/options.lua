@@ -1,16 +1,20 @@
 --[[
 vim.g
-]]
---
+--]]
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = true
 
+-- Uncomment to make pwd track the netrw browsing dir
+-- vim.g.netrw_keepdir = 0
+vim.g.netrw_liststyle = 3
+
 --[[
 vim.o
-]]
---
+--]]
+
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
