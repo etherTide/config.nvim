@@ -5,18 +5,21 @@
     lazy.nvim plugin specs.
     Each spec is defined in its own file and imported by this file.
 --]]
+local none
 LANG_TOOLS = {
   lua = { mason = { "lua-language-server", "stylua" } },
   vim = { mason = "vim-language-server", "vint" },
-  vimdoc = { mason = "none" },
+  vimdoc = { mason = none },
   nix = { mason = { "alejandra", "nil" } },
-  markdown = { mason = "none" },
+  markdown = { mason = none },
   python = { mason = { "debugpy", "mypy", "ruff", "sphinx-lint" } },
-  c = { mason = { "clang-format", "cpplint", "clangd", "codelldb" } },
-  make = { mason = {} },
-  bash = { mason = {} },
-  zsh = { mason = {} },
-  fish = { mason = {} },
+  c = { mason = { "clangd", "codelldb", "cpplint", "clang-format" } },
+  make = { mason = "checkmake" },
+  bash = { mason = { "bash-language-server", "shellharden" } },
+  zsh = {
+    mason = "beautysh" --[[ and "bash-language-server" (in bash tools) ]],
+  },
+  fish = { mason = "fish-lsp" },
   git = {
     ts = {
       "git_config",
@@ -24,10 +27,13 @@ LANG_TOOLS = {
       "gitattributes",
       "gitcommit",
     },
-    mason = {},
+    mason = none,
   },
-  javascript = { mason = {} },
-  json = { mason = {} },
+  -- TODO: check that clang-format doesn't conflict with biome
+  javascript = { mason = "biome" },
+  json = {
+    mason = none --[[ "biome" (already in javascript tools) ]],
+  },
 }
 
 GET_TOOLS = function(tool_type)
@@ -36,7 +42,7 @@ GET_TOOLS = function(tool_type)
     local tool = LANG_TOOLS[lang][tool_type]
     if tool ~= nil then
       m[lang] = LANG_TOOLS[lang][tool_type]
-    elseif tool == "none" then
+    elseif tool == none then
       -- deliberately do nothing
     else
       m[lang] = lang
