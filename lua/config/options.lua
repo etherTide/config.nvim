@@ -28,7 +28,7 @@ vim.cpoptions = "n"
 
 vim.o.undofile = true
 
-vim.o.ignorcase = true
+vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.o.updatetime = 250
