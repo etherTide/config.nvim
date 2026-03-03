@@ -1,8 +1,9 @@
 -- set vim.o and vim.g options
-require("config.options")
+require("options")
 
 -- add my custom keybinds
-require("config.mappings")
+require("mappings")
 
 -- install lazy.nvim and configured plugins
 require("config.lazy")
+
