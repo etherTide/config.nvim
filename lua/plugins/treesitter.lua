@@ -1,8 +1,12 @@
-return function(ts_parsers) -- NOTE: ts_parsers defined in ./init.lua
+local spec = function(ts_parsers)
   return {
     "nvim-treesitter/nvim-treesitter",
     lazy = false,
     build = ":TSUpdate",
-    opts = { ensure_installed = ts_parsers },
+    opts = {
+      -- NOTE: ts_parsers defined in ./init.lua
+      ensure_installed = ts_parsers
+    },
   }
-end
+
+return spec

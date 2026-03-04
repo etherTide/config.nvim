@@ -54,13 +54,16 @@ end
 
 TS_PARSERS = GET_TOOLS("ts")
 MASON_TOOLS = GET_TOOLS("mason")
+LSP_CONFIGS = GET_TOOLS("lsp")
 
 return {
+  -- Mason.nvim & mason-tool-install LSP package management
+  require("plugins.mason-lspconfig")(LSP_CONFIGS),
+  require("plugins.mason-tool-install")(MASON_TOOLS),
+
   -- TokyoNight colourscheme
   require("plugins.tokyonight"),
+
   -- Nvim-TreeSitter code highlights
   require("plugins.treesitter")(TS_PARSERS),
-  -- Mason.nvim & mason-tool-install LSP package management
-  require("plugins.mason"),
-  require("plugins.mason-tool-install")(MASON_TOOLS),
 }

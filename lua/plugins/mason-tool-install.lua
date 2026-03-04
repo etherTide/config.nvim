@@ -1,9 +1,14 @@
-local spec = {
+local spec = function(mason_tools) {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
-  opts = {},
+  dependencies = {
+    { "mason-org/mason.nvim", opts = {} },
+  },
+  opts = {
+    integrations = { ['mason-lspconfig'] = true },
+    -- NOTE: mason_tools defined in ./init.lua
+    ensure_installed = mason_tools
+  },
 }
-
-return function(mason_tools) -- NOTE: mason_tools defined in ./init.lua
-  spec.opts.ensure_installed = mason_tools
-  return spec
 end
+
+return spec
