@@ -7,3 +7,9 @@ require "config.lazy"
 
 vim.cmd[[colorscheme tokyonight-moon]]
 
+vim.keymap.set('n', "<Leader><Leader>x", "<cmd>source %<CR>")
+vim.keymap.set('n', "<Leader>x", ":.lua<CR>")
+vim.keymap.set('v', "<Leader>x", ":lua<CR>")
+
+-- ^I = Tab, so Tab goes forward in jump list and S-Tab goes back :D
+vim.keymap.set('n', "<S-Tab>", "<C-O>")
