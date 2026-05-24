@@ -5,4 +5,3 @@ return {
   opts = {},
 }
 
-vim.cmd[[colorscheme tokyonight-moon]]

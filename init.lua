@@ -54,4 +54,5 @@ vim.api.nvim_create_autocmd(
 )
 
 require "config.lazy"
+vim.cmd[[colorscheme tokyonight-moon]]
 
