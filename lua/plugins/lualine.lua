@@ -7,3 +7,5 @@ return {
     },
   },
 }
+
+vim.o.showmode = false
