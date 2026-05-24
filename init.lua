@@ -38,9 +38,20 @@ vim.keymap.set('v', "<Leader>x", ":lua<CR>")
 -- ^I = Tab, so Tab goes forward in jump list and S-Tab goes back :D
 vim.keymap.set('n', "<S-Tab>", "<C-O>")
 
- -- Clear highlights on search when pressing <Esc> in normal mode
-  --  See `:help hlsearch`
-  vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+vim.api.nvim_create_autocmd(
+  'TextYankPost',
+  {
+    desc = 'Highlight text that it being yanked',
+    group = vim.api.nvim_create_augroup('highlight-on-yank', {clear = true}),
+    callback = function()
+      vim.highlight.on_yank()
+    end,
+  }
+)
 
 require "config.lazy"
 
