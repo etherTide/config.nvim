@@ -1,0 +1,17 @@
+	- [x] Set basic vim options
+	- [x] Plugin manager
+	- [x] Theme
+	- [x] Status bar
+	- [ ] Keybind help / cheatsheet
+	- [ ] File tree
+	- [ ] Fuzzy find files
+	- [ ] GREP files
+	- [ ] Floating terminal
+	- [x] Syntax highlighting
+	- [ ] Debug
+	- [x] LSP
+	- [ ] Auto-format
+	- [ ] Linting & Error Diagnostics
+	- [ ] Auto-complete
+	- [?] in-line LLM?
+
